@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+    <style>
+         body{
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        background-color: rgb(35,39,42);
+        color: white;
+    }
+    .tex{
+        /* width: 900px; */
+    }
+        .tex h1{
+            color: white;
+            width: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+  margin: auto;
+  align-items: center;
+        }
+        .tex h1{
+            padding-top: 20px;
+            padding-left: 30px;
+        }
+        .align{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+#resize{
+    width: 1000px;
+
+}
+.next-sec {
+    padding-left: 160px;
+}
+.wit{
+    width: 950px;
+}
+
+
+.type--A{
+  --line_color : #555555 ;
+  --back_color : #FFECF6  ;
+}
+.type--B{
+  --line_color : #1b1919 ;
+  --back_color : #E9ECFF
+}
+.type--C{
+  --line_color : #00135C ;
+  --back_color : #DEFFFA 
+}
+.button{
+    position : relative ;
+    z-index : 0 ;
+    width : 240px ;
+    height : 56px ;
+    text-decoration : none ;
+    font-size : 14px ; 
+    font-weight : bold ;
+    color : var(--line_color) ;
+    letter-spacing : 2px ;
+    transition : all .3s ease ;
+}
+.button__text{
+    display : flex ;
+    justify-content : center ;
+    align-items : center ;
+    width : 100% ;
+    height : 100% ;
+}
+.button::before,
+.button::after,
+.button__text::before,
+.button__text::after{
+    content : '' ;
+    position : absolute ;
+    height : 3px ;
+    border-radius : 2px ;
+    background : var(--line_color) ;
+    transition : all .5s ease ;
+}
+.button::before{
+    top : 0 ;
+    left : 54px ;
+    width : calc( 100% - 56px * 2 - 16px ) ;
+}
+.button::after{
+    top : 0 ;
+    right : 54px ;
+    width : 8px ;
+}
+.button__text::before{
+    bottom : 0 ;
+    right : 54px ;
+    width : calc( 100% - 56px * 2 - 16px ) ;
+}
+.button__text::after{
+    bottom : 0 ;
+    left : 54px ;
+    width : 8px ;
+}
+.button__line{
+    position : absolute ;
+    top : 0 ;
+    width : 56px ;
+    height : 100% ;
+    overflow : hidden ;
+}
+.button__line::before{
+    content : '' ;
+    position : absolute ;
+    top : 0 ;
+    width : 150% ;
+    height : 100% ;
+    box-sizing : border-box ;
+    border-radius : 300px ;
+    border : solid 3px var(--line_color) ;
+}
+.button__line:nth-child(1),
+.button__line:nth-child(1)::before{
+    left : 0 ;
+}
+.button__line:nth-child(2),
+.button__line:nth-child(2)::before{
+    right : 0 ;
+}
+.button:hover{
+    letter-spacing : 6px ;
+}
+.button:hover::before,
+.button:hover .button__text::before{
+    width : 8px ;
+}
+.button:hover::after,
+.button:hover .button__text::after{
+    width : calc( 100% - 56px * 2 - 16px ) ;
+}
+.button__drow1,
+.button__drow2{
+    position : absolute ;
+    z-index : -1 ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+}
+.button__drow1{
+    top : -16px ;
+    left : 40px ;
+    width : 32px ;
+    height : 0;
+    transform : rotate( 30deg ) ;
+}
+.button__drow2{
+    top : 44px ;
+    left : 77px ;
+    width : 32px ;
+    height : 0 ;
+    transform : rotate(-127deg ) ;
+}
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2::before,
+.button__drow2::after{
+    content : '' ;
+    position : absolute ;
+}
+.button__drow1::before{
+    bottom : 0 ;
+    left : 0 ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( -60deg ) ;
+}
+.button__drow1::after{
+    top : -10px ;
+    left : 45px ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( 69deg ) ;
+}
+.button__drow2::before{
+    bottom : 0 ;
+    left : 0 ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( -146deg ) ;
+}
+.button__drow2::after{
+    bottom : 26px ;
+    left : -40px ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( -262deg ) ;
+}
+.button__drow1,
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2,
+.button__drow2::before,
+.button__drow2::after{
+    background : var( --back_color ) ;
+}
+.button:hover .button__drow1{
+    animation : drow1 ease-in .06s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow1::before{
+    animation : drow2 linear .08s .06s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow1::after{
+    animation : drow3 linear .03s .14s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow2{
+    animation : drow4 linear .06s .2s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow2::before{
+    animation : drow3 linear .03s .26s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow2::after{
+    animation : drow5 linear .06s .32s ;
+    animation-fill-mode : forwards ;
+}
+@keyframes drow1{
+    0%   { height : 0 ; }
+    100% { height : 100px ; }
+}
+@keyframes drow2{
+    0%   { width : 0 ; opacity : 0 ;}
+    10%  { opacity : 0 ;}
+    11%  { opacity : 1 ;}
+    100% { width : 120px ; }
+}
+@keyframes drow3{
+    0%   { width : 0 ; }
+    100% { width : 80px ; }
+}
+@keyframes drow4{
+    0%   { height : 0 ; }
+    100% { height : 120px ; }
+}
+@keyframes drow5{
+    0%   { width : 0 ; }
+    100% { width : 124px ; }
+}
+.button:not(:last-child){
+  margin-bottom : 64px ;
+}
+.container{
+    width : 50% ;
+    height : 100px ;
+    display : flex ;
+    flex-direction : column ;
+    justify-content : left ;
+    align-items: flex-start;
+}
+#collapse{
+    /* width: 900px; */
+}
+.align{}
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+		
+		<a href="index.html" class="button type--A">
+			<div class="button__line"></div>
+			<div class="button__line"></div>
+			<span class="button__text">back to blog list</span>
+			<div class="button__drow1"></div>
+			<div class="button__drow2"></div>
+		  </a>
+	</div>
+    <div class="clolumn">
+        <div class="tex">
+            <h1>Connecting AWS to GCP: A Comprehensive Guide </h1>
+            <h1>to Site-to-Site VPN</h1>
+            <p class="align">With the rise of multi-cloud strategies, more and more organizations are operating in environments where they deploy resources across multiple cloud providers. This trend necessitates secure and efficient communication between resources located in different cloud platforms. In this post, we'll walk you through setting up a Site-to-Site VPN connection between Amazon Web Services (AWS) and Google Cloud Platform (GCP), allowing resources in both clouds to communicate with each other securely over the </p>
+            <p class="align" id="collapse">internet.</p>
+        </div>
+        <div class="align" >
+            <img src="blog2.jpg" alt="" id="resize">
+        </div>
+        <div class="next-sec">
+            <p class="wit">With the rise of multi-cloud strategies, more and more organizations are operating in environments where they deploy resources across multiple cloud providers. This trend necessitates secure and efficient communication between resources located in different cloud platforms. In this post, we'll walk you through setting up a Site-to-Site VPN connection between Amazon Web Services (AWS) and Google Cloud Platform (GCP), allowing resources in both clouds to communicate with each other securely over the internet.</p>
+            <h1>What is a Site-to-Site VPN?</h1>
+            <p class="wit">
+                A Site-to-Site Virtual Private Network (VPN) is a connection that helps in bridging two networks in different locations over the internet in a secure manner. Traffic is encrypted on one end and decrypted on the other, ensuring data confidentiality and integrity between the two sites.
+            </p>
+            <h1>Prerequisites:</h1>
+            <p>
+                <ul>
+                    <li>Active AWS and GCP accounts</li>
+                    <li>Basic understanding of VPC in AWS and GCP</li>
+                </ul>
+            </p>
+            <h1>Benefits:</h1>
+            <ul>
+                <li>Security: Data is encrypted end-to-end.
+                </li>
+                <li>Flexibility: Resources in both AWS and GCP can communicate seamlessly.</li>
+                <li>Cost-Effective: Reduces the need for dedicated, physical connections.</li>
+            </ul>
+            <h1>Conclusion:</h1>
+            <p>Connecting AWS to GCP using a Site-to-Site VPN establishes a secure, private connection between the two cloud platforms. This guide provides a basic understanding of setting up this connection, but real-world scenarios might require additional configurations like BGP, dynamic routes, and more, depending on the architecture and requirements.</p>
+            <p>Remember, while VPNs offer encryption and security, it's essential to continually monitor, patch, and update configurations to ensure optimal performance and security. Happy networking!</p>
+	
+	</div>
+</body>
+</html>
